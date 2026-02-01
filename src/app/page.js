@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SearchForm from "../components/SearchForm";
 
 async function getMovies(query) {
@@ -52,7 +53,8 @@ export default async function Home({ searchParams }) {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {movies.map((movie) => (
-            <div
+            <Link
+              href={`/movie/${movie.imdbID}`}
               key={movie.imdbID}
               className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(139,92,246,0.3)]"
             >
@@ -77,9 +79,10 @@ export default async function Home({ searchParams }) {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+
 
         {query && movies.length === 0 && (
           <div className="text-center py-20 bg-white/5 rounded-3xl border border-dashed border-white/10">
