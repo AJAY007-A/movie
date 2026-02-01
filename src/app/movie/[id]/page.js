@@ -31,7 +31,7 @@ export default async function MovieDetail({ params }) {
 
     return (
         <main className="min-h-screen bg-[#0f0f0f] text-white pb-20">
-            {/* Backdrop Backdrop Area */}
+
             <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
                 <img
                     src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/1920x1080?text=No+Backdrop"}
@@ -43,7 +43,7 @@ export default async function MovieDetail({ params }) {
 
             <div className="max-w-6xl mx-auto px-4 -mt-60 relative z-10">
                 <div className="flex flex-col md:flex-row gap-10">
-                    {/* Poster */}
+    
                     <div className="w-full md:w-80 flex-shrink-0">
                         <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10 ring-1 ring-white/20">
                             <img
@@ -65,7 +65,6 @@ export default async function MovieDetail({ params }) {
                         </div>
                     </div>
 
-                    {/* Info */}
                     <div className="flex-1 space-y-8">
                         <div className="space-y-4">
                             <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-4">
