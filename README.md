@@ -2,7 +2,6 @@
 
 MovieVault is a premium, modern web application for discovering movies and exploring cinematic data. Built with **Next.js 15**, **React 19**, and **Tailwind CSS 4**, it offers a blazing-fast and visually stunning user experience.
 
-![MovieVault Preview](https://via.placeholder.com/1200x600?text=MovieVault+Cinematic+Interface)
 
 ## ✨ Features
 
