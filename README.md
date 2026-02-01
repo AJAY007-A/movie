@@ -32,14 +32,7 @@ MovieVault is a premium, modern web application for discovering movies and explo
    npm install
    ```
 
-3. **Set up Environment Variables**:
-   Create a `.env.local` file in the root directory and add your OMDB API key:
-   ```env
-   OMDB_API_KEY=your_key_here
-   NEXT_PUBLIC_BASE_URL=http://localhost:3000
-   ```
-
-4. **Run the development server**:
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
