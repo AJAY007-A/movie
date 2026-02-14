@@ -21,7 +21,7 @@ async function getMovies(query) {
 
 export default async function Home({ searchParams }) {
   const params = await searchParams;
-  const query = params?.q || "";
+  const query = params?.q || "Marvel";
   const movies = await getMovies(query);
 
   return (
@@ -42,14 +42,16 @@ export default async function Home({ searchParams }) {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 pb-20">
-        {query && (
-          <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold">
-              Results for: <span className="text-purple-400">{query}</span>
-            </h2>
-            <p className="text-gray-500">{movies.length} matches found</p>
-          </div>
-        )}
+        <div className="mb-8 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold">
+            {params?.q ? (
+              <>Results for: <span className="text-purple-400">{query}</span></>
+            ) : (
+              <span className="text-purple-400 text-3xl">Featured Movies</span>
+            )}
+          </h2>
+          <p className="text-gray-500">{movies.length} matches found</p>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {movies.map((movie) => (
@@ -87,17 +89,6 @@ export default async function Home({ searchParams }) {
         {query && movies.length === 0 && (
           <div className="text-center py-20 bg-white/5 rounded-3xl border border-dashed border-white/10">
             <p className="text-gray-400 text-xl">No movies found named "{query}". Try another search!</p>
-          </div>
-        )}
-
-        {!query && (
-          <div className="text-center py-20">
-            <div className="inline-block p-10 rounded-full bg-white/5 border border-white/10 mb-6">
-              <svg className="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <p className="text-gray-500 text-lg">Start typing to explore the cinematic world</p>
           </div>
         )}
       </div>

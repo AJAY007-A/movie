@@ -11,7 +11,7 @@ export async function GET(req) {
     const apiKey = "6b1217c4";
 
     try {
-        const res = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${apiKey}`);
+        const res = await fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=${apiKey}`);
         const data = await res.json();
         return NextResponse.json(data);
     } catch (error) {
