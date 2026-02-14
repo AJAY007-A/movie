@@ -1,17 +1,8 @@
+import { getMovieDetails as fetchFromOmdb } from "../../lib/movieApi";
 import Link from "next/link";
 
 async function getMovieDetails(id) {
-    try {
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
-        const res = await fetch(`${baseUrl}/api/movie/${id}`, {
-            cache: "no-store",
-        });
-        if (!res.ok) return null;
-        return await res.json();
-    } catch (error) {
-        console.error("Detail fetch error:", error);
-        return null;
-    }
+    return await fetchFromOmdb(id);
 }
 
 export default async function MovieDetail({ params }) {
@@ -43,7 +34,7 @@ export default async function MovieDetail({ params }) {
 
             <div className="max-w-6xl mx-auto px-4 -mt-60 relative z-10">
                 <div className="flex flex-col md:flex-row gap-10">
-    
+
                     <div className="w-full md:w-80 flex-shrink-0">
                         <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10 ring-1 ring-white/20">
                             <img
