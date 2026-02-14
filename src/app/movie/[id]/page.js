@@ -1,4 +1,4 @@
-import { getMovieDetails as fetchFromOmdb } from "../../lib/movieApi";
+import { getMovieDetails as fetchFromOmdb } from "../../../lib/movieApi";
 import Link from "next/link";
 
 async function getMovieDetails(id) {
