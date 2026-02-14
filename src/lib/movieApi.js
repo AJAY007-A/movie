@@ -2,14 +2,14 @@ const API_KEY = "6b1217c4";
 const BASE_URL = "https://www.omdbapi.com/";
 
 export async function searchMovies(query) {
-    if (!query) return [];
+    if (!query) return { Search: [], Response: "False", Error: "No query" };
     try {
         const res = await fetch(`${BASE_URL}?s=${encodeURIComponent(query)}&apikey=${API_KEY}`);
         const data = await res.json();
-        return data.Search || [];
+        return data;
     } catch (error) {
         console.error("OMDB Search Error:", error);
-        return [];
+        return { Search: [], Response: "False", Error: error.message };
     }
 }
 

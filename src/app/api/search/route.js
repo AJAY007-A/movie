@@ -10,5 +10,5 @@ export async function GET(req) {
     }
 
     const data = await searchMovies(query);
-    return NextResponse.json({ Search: data });
+    return NextResponse.json(data);
 }

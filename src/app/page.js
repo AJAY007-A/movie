@@ -3,7 +3,8 @@ import { searchMovies } from "../lib/movieApi";
 import SearchForm from "../components/SearchForm";
 
 async function getMovies(query) {
-  return await searchMovies(query);
+  const data = await searchMovies(query);
+  return data.Search || [];
 }
 
 export default async function Home({ searchParams }) {
